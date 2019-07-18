@@ -1,0 +1,464 @@
+[ 2017-10-09T03:06:04+08:00 ] 0.0.0.0 110.186.76.214 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.421886s][吞吐率：2.37req/s] [内存消耗：4,042.61kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031251s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.031251s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507489564  AND `top_time` > 1507489564 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507489564  AND `top_time` < 1507489564 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T03:06:05+08:00 ] 0.0.0.0 110.186.76.214 GET /carpool/carpool/wxLogin?code=013vVUab0YAoTs1HZs9b0BEOab0vVUaf&nickname=%E6%9C%89%E5%8F%AF%E8%83%BD%E6%88%91%E5%8F%AB%E7%80%9B%E7%88%B8%E7%88%B8&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F1EmbCRZwGAOScib8h46pKSfZg2EibfvmeoP4MAklay5PTvLia07rVXptZ6mkGKo4utpwRMfpqEZk52LkN0V52wicmA%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013vVUab0YAoTs1HZs9b0BEOab0vVUaf&nickname=%E6%9C%89%E5%8F%AF%E8%83%BD%E6%88%91%E5%8F%AB%E7%80%9B%E7%88%B8%E7%88%B8&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F1EmbCRZwGAOScib8h46pKSfZg2EibfvmeoP4MAklay5PTvLia07rVXptZ6mkGKo4utpwRMfpqEZk52LkN0V52wicmA%2F0&sex=1 [运行时间：1.656292s][吞吐率：0.60req/s] [内存消耗：4,656.71kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013vVUab0YAoTs1HZs9b0BEOab0vVUaf&grant_type=authorization_code&
+[ log ] 远程调用花费1.234407s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013vVUab0YAoTs1HZs9b0BEOab0vVUaf',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"5ZBKPx0s9TUeWyBt+rNsCw==","expires_in":7200,"openid":"om2_z0KgpbgujxLZz2vdl4HRkkxg"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0KgpbgujxLZz2vdl4HRkkxg' LIMIT 1 [ RunTime:0.031251s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0KgpbgujxLZz2vdl4HRkkxg' , 'https://wx.qlogo.cn/mmopen/vi_32/1EmbCRZwGAOScib8h46pKSfZg2EibfvmeoP4MAklay5PTvLia07rVXptZ6mkGKo4utpwRMfpqEZk52LkN0V52wicmA/0' , '1' , '有可能我叫瀛爸爸') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T03:19:04+08:00 ] 0.0.0.0 119.4.254.154 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.125003s][吞吐率：8.00req/s] [内存消耗：4,042.66kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.093752s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507490343  AND `top_time` > 1507490343 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507490343  AND `top_time` < 1507490344 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T03:19:06+08:00 ] 0.0.0.0 119.4.254.154 GET /carpool/carpool/wxLogin?code=013pa2jN1159V519dEjN1gbmjN1pa2j5&nickname=%E9%9A%8F%E9%A3%8E&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FX5rIibvOT8wLuX3rsPWP0WGIwowFXAoOxMrn0fcBezVlUT845MiafqfNyCXOz74eCvV04EwibxiajCicdnXOmHJsCmw%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013pa2jN1159V519dEjN1gbmjN1pa2j5&nickname=%E9%9A%8F%E9%A3%8E&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FX5rIibvOT8wLuX3rsPWP0WGIwowFXAoOxMrn0fcBezVlUT845MiafqfNyCXOz74eCvV04EwibxiajCicdnXOmHJsCmw%2F0&sex=1 [运行时间：1.078153s][吞吐率：0.93req/s] [内存消耗：4,656.48kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013pa2jN1159V519dEjN1gbmjN1pa2j5&grant_type=authorization_code&
+[ log ] 远程调用花费1.000026s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013pa2jN1159V519dEjN1gbmjN1pa2j5',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"CAheQFXQy9Y2F6y00KeabA==","expires_in":7200,"openid":"om2_z0P2SJ4DpudTsvTwb6x78_IQ"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0P2SJ4DpudTsvTwb6x78_IQ' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0P2SJ4DpudTsvTwb6x78_IQ' , 'https://wx.qlogo.cn/mmopen/vi_32/X5rIibvOT8wLuX3rsPWP0WGIwowFXAoOxMrn0fcBezVlUT845MiafqfNyCXOz74eCvV04EwibxiajCicdnXOmHJsCmw/0' , '1' , '随风') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T03:19:17+08:00 ] 0.0.0.0 119.4.254.154 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.078127s][吞吐率：12.80req/s] [内存消耗：4,008.77kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507490357  AND `top_time` < 1507490357 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.015626s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:00:13+08:00 ] 0.0.0.0 111.9.108.252 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.281259s][吞吐率：3.56req/s] [内存消耗：4,042.62kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046877s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.031251s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507503613  AND `top_time` > 1507503613 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.031251s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507503613  AND `top_time` < 1507503613 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:00:15+08:00 ] 0.0.0.0 111.9.108.252 GET /carpool/carpool/wxLogin?code=013NkJCS1jU81a11bGDS1UfICS1NkJCP&nickname=%E6%98%8E%E5%A4%A9%E4%BC%9A%E6%9B%B4%E5%A5%BD&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F6y8ZoicCCP2Rd9PPI8gGThgD86Z8OhVTIIW2lz6LiahM8eytvicK24f0LkgpocInxfv8VJt7rT1YN5ibO0SGngQbHw%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013NkJCS1jU81a11bGDS1UfICS1NkJCP&nickname=%E6%98%8E%E5%A4%A9%E4%BC%9A%E6%9B%B4%E5%A5%BD&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F6y8ZoicCCP2Rd9PPI8gGThgD86Z8OhVTIIW2lz6LiahM8eytvicK24f0LkgpocInxfv8VJt7rT1YN5ibO0SGngQbHw%2F0&sex=1 [运行时间：1.531299s][吞吐率：0.65req/s] [内存消耗：4,656.86kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013NkJCS1jU81a11bGDS1UfICS1NkJCP&grant_type=authorization_code&
+[ log ] 远程调用花费1.218789s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013NkJCS1jU81a11bGDS1UfICS1NkJCP',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"EkIolx7HtTinzZmZf7tSWw==","expires_in":7200,"openid":"om2_z0LuUhzTZE5ocxzu8AZwZvEw"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0LuUhzTZE5ocxzu8AZwZvEw' LIMIT 1 [ RunTime:0.031251s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0LuUhzTZE5ocxzu8AZwZvEw' , 'https://wx.qlogo.cn/mmopen/vi_32/6y8ZoicCCP2Rd9PPI8gGThgD86Z8OhVTIIW2lz6LiahM8eytvicK24f0LkgpocInxfv8VJt7rT1YN5ibO0SGngQbHw/0' , '1' , '明天会更好') [ RunTime:0.031251s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:00:34+08:00 ] 0.0.0.0 111.9.108.252 GET /carpool/carpool/myCarpool?page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/myCarpool?page=1 [运行时间：0.093753s][吞吐率：10.67req/s] [内存消耗：4,122.53kb] [文件加载：69]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `user_id` = 29  AND `status` = 1 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.031251s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:39:05+08:00 ] 0.0.0.0 117.136.82.242 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.093753s][吞吐率：10.67req/s] [内存消耗：4,042.87kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507505945  AND `top_time` > 1507505945 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507505945  AND `top_time` < 1507505945 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:39:06+08:00 ] 0.0.0.0 117.136.82.242 GET /carpool/carpool/wxLogin?code=003m4NzK0R0D942rlSzK0WgNzK0m4NzE&nickname=%E8%A8%8E%E4%BD%A0%E6%AD%A1%E5%BF%83&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F1lUGFPokvWKLfQNgm1zXvciasI00pmkg3iaEHesUMefOvy6m99THnGBja4TPAEMOFlgfKDSvSCXRNwCVDn3MicIQQ%2F0&sex=2
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=003m4NzK0R0D942rlSzK0WgNzK0m4NzE&nickname=%E8%A8%8E%E4%BD%A0%E6%AD%A1%E5%BF%83&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F1lUGFPokvWKLfQNgm1zXvciasI00pmkg3iaEHesUMefOvy6m99THnGBja4TPAEMOFlgfKDSvSCXRNwCVDn3MicIQQ%2F0&sex=2 [运行时间：1.296917s][吞吐率：0.77req/s] [内存消耗：4,656.91kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=003m4NzK0R0D942rlSzK0WgNzK0m4NzE&grant_type=authorization_code&
+[ log ] 远程调用花费1.140661s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '003m4NzK0R0D942rlSzK0WgNzK0m4NzE',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"S9q7Hh3LqIuGVZGSm8Lv1g==","expires_in":7200,"openid":"om2_z0GtRCkUPy8H4Drjpom698H0"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0GtRCkUPy8H4Drjpom698H0' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0GtRCkUPy8H4Drjpom698H0' , 'https://wx.qlogo.cn/mmopen/vi_32/1lUGFPokvWKLfQNgm1zXvciasI00pmkg3iaEHesUMefOvy6m99THnGBja4TPAEMOFlgfKDSvSCXRNwCVDn3MicIQQ/0' , '2' , '討你歡心') [ RunTime:0.015626s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:47:06+08:00 ] 0.0.0.0 139.207.155.206 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.125004s][吞吐率：8.00req/s] [内存消耗：4,042.87kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046877s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507506426  AND `top_time` > 1507506426 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507506426  AND `top_time` < 1507506426 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.015626s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:47:09+08:00 ] 0.0.0.0 139.207.155.206 GET /carpool/carpool/wxLogin?code=003cIIN70mr7TJ18RnN70IpQN70cIIN0&nickname=%E6%9C%A8&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2Fmy3DErTZAA4vFK7mWeP7hfmNWhaXxToyo2EOYicrSCqW08tWCHic8QCnpCevh1EibXeiciaQ70nRoP1d78yUQRIE5jA%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=003cIIN70mr7TJ18RnN70IpQN70cIIN0&nickname=%E6%9C%A8&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2Fmy3DErTZAA4vFK7mWeP7hfmNWhaXxToyo2EOYicrSCqW08tWCHic8QCnpCevh1EibXeiciaQ70nRoP1d78yUQRIE5jA%2F0&sex=1 [运行时间：1.109411s][吞吐率：0.90req/s] [内存消耗：4,656.88kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=003cIIN70mr7TJ18RnN70IpQN70cIIN0&grant_type=authorization_code&
+[ log ] 远程调用花费1.031283s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '003cIIN70mr7TJ18RnN70IpQN70cIIN0',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"lew8xQQwO1uuTfcKEIp2yA==","expires_in":7200,"openid":"om2_z0JaaFBysfsGCSwXN2GRebPc"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0JaaFBysfsGCSwXN2GRebPc' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0JaaFBysfsGCSwXN2GRebPc' , 'https://wx.qlogo.cn/mmopen/vi_32/my3DErTZAA4vFK7mWeP7hfmNWhaXxToyo2EOYicrSCqW08tWCHic8QCnpCevh1EibXeiciaQ70nRoP1d78yUQRIE5jA/0' , '1' , '木') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T07:47:20+08:00 ] 0.0.0.0 139.207.155.206 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.062502s][吞吐率：16.00req/s] [内存消耗：4,008.29kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507506440  AND `top_time` < 1507506440 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:40+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.109378s][吞吐率：9.14req/s] [内存消耗：4,042.29kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046877s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508860  AND `top_time` > 1507508860 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508860  AND `top_time` < 1507508860 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:41+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/wxLogin?code=003pXBJe1d45St0Q0xLe1uAAJe1pXBJx&nickname=%E5%86%80Vanessa&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FSibf5TxGicGWDzFx3ZibrDJjy2lZgNzOvR8tESricUF7rBwAtZkGs20bt206AudCScvBiadJPXjk7ZiaAhPlF09TR03w%2F0&sex=2
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=003pXBJe1d45St0Q0xLe1uAAJe1pXBJx&nickname=%E5%86%80Vanessa&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FSibf5TxGicGWDzFx3ZibrDJjy2lZgNzOvR8tESricUF7rBwAtZkGs20bt206AudCScvBiadJPXjk7ZiaAhPlF09TR03w%2F0&sex=2 [运行时间：1.171913s][吞吐率：0.85req/s] [内存消耗：4,656.73kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=003pXBJe1d45St0Q0xLe1uAAJe1pXBJx&grant_type=authorization_code&
+[ log ] 远程调用花费1.062534s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '003pXBJe1d45St0Q0xLe1uAAJe1pXBJx',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"zTlH2yf\/W\/oEruuWqHkQ0g==","expires_in":7200,"openid":"om2_z0G6AwenwvYfS_kKUTob9Tms"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0G6AwenwvYfS_kKUTob9Tms' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0G6AwenwvYfS_kKUTob9Tms' , 'https://wx.qlogo.cn/mmopen/vi_32/Sibf5TxGicGWDzFx3ZibrDJjy2lZgNzOvR8tESricUF7rBwAtZkGs20bt206AudCScvBiadJPXjk7ZiaAhPlF09TR03w/0' , '2' , '冀Vanessa') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:47+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.078128s][吞吐率：12.80req/s] [内存消耗：4,008.64kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508867  AND `top_time` < 1507508867 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.031251s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:56+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.062502s][吞吐率：16.00req/s] [内存消耗：4,042.83kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508876  AND `top_time` > 1507508876 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.015626s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508876  AND `top_time` < 1507508876 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:56+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/wxLogin?code=013jU8b420ulPK0AAdc42unxb42jU8bO&nickname=%E5%86%80Vanessa&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FSibf5TxGicGWDzFx3ZibrDJjy2lZgNzOvR8tESricUF7rBwAtZkGs20bt206AudCScvBiadJPXjk7ZiaAhPlF09TR03w%2F0&sex=2
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013jU8b420ulPK0AAdc42unxb42jU8bO&nickname=%E5%86%80Vanessa&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FSibf5TxGicGWDzFx3ZibrDJjy2lZgNzOvR8tESricUF7rBwAtZkGs20bt206AudCScvBiadJPXjk7ZiaAhPlF09TR03w%2F0&sex=2 [运行时间：0.296885s][吞吐率：3.37req/s] [内存消耗：4,661.39kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013jU8b420ulPK0AAdc42unxb42jU8bO&grant_type=authorization_code&
+[ log ] 远程调用花费0.250008s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013jU8b420ulPK0AAdc42unxb42jU8bO',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"zTlH2yf\/W\/oEruuWqHkQ0g==","expires_in":7200,"openid":"om2_z0G6AwenwvYfS_kKUTob9Tms"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0G6AwenwvYfS_kKUTob9Tms' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T08:27:58+08:00 ] 0.0.0.0 118.117.2.195 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.046876s][吞吐率：21.33req/s] [内存消耗：4,008.64kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507508878  AND `top_time` < 1507508878 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T09:07:18+08:00 ] 0.0.0.0 139.205.196.3 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.156255s][吞吐率：6.40req/s] [内存消耗：4,042.29kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.093753s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507511238  AND `top_time` > 1507511238 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507511238  AND `top_time` < 1507511238 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T09:07:19+08:00 ] 0.0.0.0 139.205.196.3 GET /carpool/carpool/wxLogin?code=003Jntw92H61gO0NClv9217nw92Jntwx&nickname=%E8%83%96%E5%93%A5%E2%80%98&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FCia5icDF3tklDc8oDpNkxgf8nFia7No0xOVMg0ZIGZ9lgept6YPOZ4o74UAc75bm1ViaKD2aiaGblddxQn4gTS19oiaQ%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=003Jntw92H61gO0NClv9217nw92Jntwx&nickname=%E8%83%96%E5%93%A5%E2%80%98&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FCia5icDF3tklDc8oDpNkxgf8nFia7No0xOVMg0ZIGZ9lgept6YPOZ4o74UAc75bm1ViaKD2aiaGblddxQn4gTS19oiaQ%2F0&sex=1 [运行时间：1.203163s][吞吐率：0.83req/s] [内存消耗：4,656.52kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=003Jntw92H61gO0NClv9217nw92Jntwx&grant_type=authorization_code&
+[ log ] 远程调用花费1.062534s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '003Jntw92H61gO0NClv9217nw92Jntwx',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"T1ACUmxVO08pfPqoKJlnwg==","expires_in":7200,"openid":"om2_z0C33_iFnAJZTBFzsJ23aBY8"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0C33_iFnAJZTBFzsJ23aBY8' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0C33_iFnAJZTBFzsJ23aBY8' , 'https://wx.qlogo.cn/mmopen/vi_32/Cia5icDF3tklDc8oDpNkxgf8nFia7No0xOVMg0ZIGZ9lgept6YPOZ4o74UAc75bm1ViaKD2aiaGblddxQn4gTS19oiaQ/0' , '1' , '胖哥‘') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T09:07:26+08:00 ] 0.0.0.0 139.205.196.3 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.046877s][吞吐率：21.33req/s] [内存消耗：4,008.25kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507511246  AND `top_time` < 1507511246 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:02:31+08:00 ] 0.0.0.0 117.136.65.147 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.140629s][吞吐率：7.11req/s] [内存消耗：4,042.62kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.093753s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507514551  AND `top_time` > 1507514551 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507514551  AND `top_time` < 1507514551 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:02:41+08:00 ] 0.0.0.0 117.136.65.147 GET /carpool/carpool/wxLogin?code=013tr6Y90OS16u1IRMZ90FxYX90tr6Y0&nickname=%E5%AD%A4%E5%B8%86%E8%BF%9C%E5%BD%B1&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F0EZI6n06WsGnVjkahwqCOHLEeCfVV6aq1Gu8X6UdhumDkRw83d16T4kq7OicXic8xSGMpxjMicJaacMZLQChwOY0g%2F0&sex=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013tr6Y90OS16u1IRMZ90FxYX90tr6Y0&nickname=%E5%AD%A4%E5%B8%86%E8%BF%9C%E5%BD%B1&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F0EZI6n06WsGnVjkahwqCOHLEeCfVV6aq1Gu8X6UdhumDkRw83d16T4kq7OicXic8xSGMpxjMicJaacMZLQChwOY0g%2F0&sex=1 [运行时间：1.062534s][吞吐率：0.94req/s] [内存消耗：4,656.24kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013tr6Y90OS16u1IRMZ90FxYX90tr6Y0&grant_type=authorization_code&
+[ log ] 远程调用花费1.000032s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013tr6Y90OS16u1IRMZ90FxYX90tr6Y0',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"cSQtpoB3f5inVPAPruIHEw==","expires_in":7200,"openid":"om2_z0GN2jT7irPWQ0eMjRp5FHds"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0GN2jT7irPWQ0eMjRp5FHds' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0GN2jT7irPWQ0eMjRp5FHds' , 'https://wx.qlogo.cn/mmopen/vi_32/0EZI6n06WsGnVjkahwqCOHLEeCfVV6aq1Gu8X6UdhumDkRw83d16T4kq7OicXic8xSGMpxjMicJaacMZLQChwOY0g/0' , '1' , '孤帆远影') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:03:06+08:00 ] 0.0.0.0 117.136.65.147 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.046876s][吞吐率：21.33req/s] [内存消耗：4,008.60kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507514586  AND `top_time` < 1507514586 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:03:21+08:00 ] 0.0.0.0 117.136.65.147 GET /carpool/carpool/myCarpool?page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/myCarpool?page=1 [运行时间：0.078128s][吞吐率：12.80req/s] [内存消耗：4,122.53kb] [文件加载：69]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015626s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `user_id` = 34  AND `status` = 1 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:29:10+08:00 ] 0.0.0.0 61.157.129.172 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.203131s][吞吐率：4.92req/s] [内存消耗：4,042.62kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.140630s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507516150  AND `top_time` > 1507516150 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507516150  AND `top_time` < 1507516150 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T10:29:11+08:00 ] 0.0.0.0 61.157.129.172 GET /carpool/carpool/wxLogin?code=003IZwfc1NHg6s0Hibgc1P6lfc1IZwfE&nickname=perfect&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FPGVMkKicicBacE5DPVQJzscHfvhkXWWXiaqeksL5DdxnfD6RAU6C88vhrCEw0go74QZyJ3ltricbe1vEH4ibZrhHONw%2F0&sex=2
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=003IZwfc1NHg6s0Hibgc1P6lfc1IZwfE&nickname=perfect&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FPGVMkKicicBacE5DPVQJzscHfvhkXWWXiaqeksL5DdxnfD6RAU6C88vhrCEw0go74QZyJ3ltricbe1vEH4ibZrhHONw%2F0&sex=2 [运行时间：1.203164s][吞吐率：0.83req/s] [内存消耗：4,656.53kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=003IZwfc1NHg6s0Hibgc1P6lfc1IZwfE&grant_type=authorization_code&
+[ log ] 远程调用花费1.156287s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '003IZwfc1NHg6s0Hibgc1P6lfc1IZwfE',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"TLmwInKPKviVQjV4UmqGEQ==","expires_in":7200,"openid":"om2_z0LJ8JPzO1alRVPY4vTaDT5I"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0LJ8JPzO1alRVPY4vTaDT5I' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0LJ8JPzO1alRVPY4vTaDT5I' , 'https://wx.qlogo.cn/mmopen/vi_32/PGVMkKicicBacE5DPVQJzscHfvhkXWWXiaqeksL5DdxnfD6RAU6C88vhrCEw0go74QZyJ3ltricbe1vEH4ibZrhHONw/0' , '2' , 'perfect') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T12:52:26+08:00 ] 0.0.0.0 223.86.177.17 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.734394s][吞吐率：1.36req/s] [内存消耗：4,042.62kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.109378s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.093752s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507524745  AND `top_time` > 1507524745 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.062502s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507524745  AND `top_time` < 1507524746 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T20:47:29+08:00 ] 0.0.0.0 183.46.169.204 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.093751s][吞吐率：10.67req/s] [内存消耗：4,042.66kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046876s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507553249  AND `top_time` > 1507553249 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507553249  AND `top_time` < 1507553249 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T20:47:30+08:00 ] 0.0.0.0 183.46.169.204 GET /carpool/carpool/wxLogin?code=013WaYeQ1Xbwz71M2GcQ1OKXeQ1WaYeP&nickname=%E6%99%AE%E5%AE%81%E5%BE%AE%E7%94%9F%E6%B4%BB&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FVGa0Rn7UYV4qN8yq6zFiax5qD8vzovNRMwHOx5R575keYOC2G6AuDNx3Yok5wibNgxwGcBYfJEnJtnmmiaeT57tQQ%2F0&sex=2
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013WaYeQ1Xbwz71M2GcQ1OKXeQ1WaYeP&nickname=%E6%99%AE%E5%AE%81%E5%BE%AE%E7%94%9F%E6%B4%BB&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FVGa0Rn7UYV4qN8yq6zFiax5qD8vzovNRMwHOx5R575keYOC2G6AuDNx3Yok5wibNgxwGcBYfJEnJtnmmiaeT57tQQ%2F0&sex=2 [运行时间：1.609396s][吞吐率：0.62req/s] [内存消耗：4,656.38kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013WaYeQ1Xbwz71M2GcQ1OKXeQ1WaYeP&grant_type=authorization_code&
+[ log ] 远程调用花费1.312517s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013WaYeQ1Xbwz71M2GcQ1OKXeQ1WaYeP',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"S9xIbhEocxhpxEOddH1k5w==","expires_in":7200,"openid":"om2_z0KtYsi4W84lhTLKy2ISPqSg"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.078126s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0KtYsi4W84lhTLKy2ISPqSg' LIMIT 1 [ RunTime:0.031250s ]
+[ sql ] [ SQL ] INSERT INTO `carpool_user` (`wx_open_id` , `head` , `sex` , `name`) VALUES ('om2_z0KtYsi4W84lhTLKy2ISPqSg' , 'https://wx.qlogo.cn/mmopen/vi_32/VGa0Rn7UYV4qN8yq6zFiax5qD8vzovNRMwHOx5R575keYOC2G6AuDNx3Yok5wibNgxwGcBYfJEnJtnmmiaeT57tQQ/0' , '2' , '普宁微生活') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T20:47:40+08:00 ] 0.0.0.0 183.46.169.204 GET /carpool/carpool/listCarpool?type=2&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=2&page=1 [运行时间：0.046876s][吞吐率：21.33req/s] [内存消耗：4,027.20kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `type` = 2  AND `status` = 1  AND `start_time` > 1507553260  AND `top_time` > 1507553260 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `type` = 2  AND `status` = 1  AND `start_time` > 1507553260  AND `top_time` < 1507553260 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T20:47:41+08:00 ] 0.0.0.0 183.46.169.204 GET /carpool/carpool/listCarpool?type=1&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=1&page=1 [运行时间：0.046875s][吞吐率：21.33req/s] [内存消耗：4,027.06kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `type` = 1  AND `status` = 1  AND `start_time` > 1507553261  AND `top_time` > 1507553261 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `type` = 1  AND `status` = 1  AND `start_time` > 1507553261  AND `top_time` < 1507553261 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T20:47:42+08:00 ] 0.0.0.0 183.46.169.204 GET /carpool/carpool/myCarpool?page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/myCarpool?page=1 [运行时间：0.078126s][吞吐率：12.80req/s] [内存消耗：4,122.73kb] [文件加载：69]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `user_id` = 36  AND `status` = 1 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T21:35:53+08:00 ] 0.0.0.0 139.205.202.49 GET /carpool/carpool/listCarpool?type=0&page=1
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.093753s][吞吐率：10.67req/s] [内存消耗：4,042.29kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.062502s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507556153  AND `top_time` > 1507556153 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507556153  AND `top_time` < 1507556153 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T21:35:54+08:00 ] 0.0.0.0 139.205.202.49 GET /carpool/carpool/wxLogin?code=013s62O40N1zAI1aQVK400fUN40s62OB&nickname=%E6%8E%8C%E4%BA%91%E5%AE%9D&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FJJNEztkFUvKB0r84Q5BPeB9XzibEhRRNBOvkrBc8tyhZqdkHMnkEvMMyRIaEFWK06f8uDAEOOwDPLcTrNpzllzw%2F0&sex=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/wxLogin?code=013s62O40N1zAI1aQVK400fUN40s62OB&nickname=%E6%8E%8C%E4%BA%91%E5%AE%9D&head=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FJJNEztkFUvKB0r84Q5BPeB9XzibEhRRNBOvkrBc8tyhZqdkHMnkEvMMyRIaEFWK06f8uDAEOOwDPLcTrNpzllzw%2F0&sex=0 [运行时间：1.125029s][吞吐率：0.89req/s] [内存消耗：4,660.95kb] [文件加载：86]
+[ log ] 远程调用
+[ log ] https://api.weixin.qq.com/sns/jscode2session?appid=wxe80eaa0eeabf9d8b&secret=2209798c1106d88e98923cf6394854a9&js_code=013s62O40N1zAI1aQVK400fUN40s62OB&grant_type=authorization_code&
+[ log ] 远程调用花费1.000026s
+[ log ] 远程参数:
+[ log ] array (
+  'appid' => 'wxe80eaa0eeabf9d8b',
+  'secret' => '2209798c1106d88e98923cf6394854a9',
+  'js_code' => '013s62O40N1zAI1aQVK400fUN40s62OB',
+  'grant_type' => 'authorization_code',
+)
+[ log ] 远程调用请求头:
+[ log ] array (
+)
+[ log ] 远程调用返回参数
+[ log ] {"session_key":"1YiOiW2ooxFNIB5Z7MCe5Q==","expires_in":7200,"openid":"om2_z0DbSKoJGnvPfrBQG6O-diPg"}
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `wx_open_id` = 'om2_z0DbSKoJGnvPfrBQG6O-diPg' LIMIT 1 [ RunTime:0.015626s ]
+
+---------------------------------------------------------------
+[ 2017-10-09T21:35:59+08:00 ] 0.0.0.0 139.205.202.49 GET /carpool/carpool/listCarpool?page=2&type=0
+[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?page=2&type=0 [运行时间：0.062501s][吞吐率：16.00req/s] [内存消耗：4,008.25kb] [文件加载：65]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.015626s ]
+[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1507556159  AND `top_time` < 1507556159 ORDER BY start_time asc LIMIT 10,10 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------

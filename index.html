@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>江油拼车_江油顺风车_江油掌圈旗下</title>
+<meta name="keywords" content="江油拼车,江油网,江油拼车网,江油顺风车,江油拼车回家"/>
+<meta name="description" content="江油拼车小程序专为江油人民提供拼车服务而开发的微信拼车平台，江油拼车、江油顺风车，就找江油拼车小程序，微信一扫，轻松使用！"/>
+<meta name="author" content="江油掌圈" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/css/jquery.fullPage.css" />
+<link rel="stylesheet" href="style/css/base.css" />
+<link rel="stylesheet" href="style/css/welcome.css" />
+<link rel="stylesheet" href="style/css/jquery.bxslider.css">
+<script src="style/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="style/js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+		my_section1.init();
+  $('#welcome').fullpage({
+	'verticalCentered': false,
+	'css3': true,
+	'sectionsColor': ['#6cbb52','#e89c38', '#40a3e1'],
+	'navigation': true,
+	'navigationPosition': 'right',
+			'afterRender' : function (index,anchorLink ) {
+				$(".iphone_img").addClass('fadeInTop');
+			},
+			'afterSlideLoad':function(index ) {
+
+			}
+			,
+	'afterLoad': function(anchorLink, index){
+				if( index == 2) {
+					$(".iphone_img").removeClass('fadeInTop');
+				}
+				if(index==3){
+					my_section1.init();
+				}
+				if(index==1){
+					my_section1.init();
+				}
+				if(index==2){
+					my_section2.init();
+				}
+
+	},
+	'onLeave': function(index, nextIndex, direction){
+	  if( nextIndex  == 1 ) {
+					$(".iphone_img").addClass('fadeInTop');
+				}
+				if(index==1){
+					my_section1.anim();
+				}
+				if(index==3){
+					my_section1.anim();
+				}
+				if(index==2){
+					my_section2.anim();
+				}
+	}
+  });
+});
+</script>
+</head>
+<body>
+    <div id="welcome">
+        <div class="section" id="section0">
+           <div class="my_section">
+                <div class="my_codoon fl">
+                    <div class="text1_box">
+                        <div class="text1 fl">江油拼车</div>
+                        <div class="blank0"></div>
+                    </div>
+                    <p><div class="text2">
+                        去绵阳？去成都？<br />
+                        放假回江油？<br />
+                        不用再去挤公交车、大巴车啦！<br />
+                        搭上顺路私家车，轻松到家，车接车送！<br />
+                        丰宁拼车，就是这么简单！<br />
+                        （市内拼车更优惠哦~）
+                        </div></p>
+                    <div class="download_box">
+                        <div class="left">
+                            <div class="icon erweima"></div>
+                        </div>
+                        <div class="blank10"></div>
+                    </div>
+                </div>
+                <div class="iphone fr">
+                    <div class="iphone_icon iphone_img">
+                      <div id="iphone_slider_wrapper">
+                        <div id="iphone_slider">
+                          <ul id="iphone_slider_ul">
+                            <li><img src="style/images/pinche-1.jpg"></li>
+                            <li><img src="style/images/pinche-2.jpg"></li>
+                            <li><img src="style/images/pinche-3.jpg"></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <img class="iphone_xxoo" src="style/images/iphone_xxoo.png">
+                    </div>
+                </div>
+                <div class="blank0"></div>
+           </div>
+        </div>
+    </div>
+    <div class="fixed head">
+        <div class="head_content">
+            <div class="icon logo logo_blue fl"></div>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div class="fixed bottom">
+        <div class="bottom_content">
+            <a href="#">江油掌圈互联</a>
+            </label>
+            <br />
+            <p>Copyright © 2017-2030 </p>
+        </div>
+    </div>
+</body>
+</html>

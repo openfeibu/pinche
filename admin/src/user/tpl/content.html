@@ -1,0 +1,35 @@
+<div class="main-top-bar cf">
+    <h1 class="title">{{title}}</h1>
+</div>
+<div class="user-table">
+    <table>
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>手机号</td>
+                <td>性别</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in list.data">
+                <td>
+                    <img class="faceimg" :src="item.head" alt="">
+                    <span class="name">{{item.name}}</span>
+                </td>
+                <td>{{item.phone}}</td>
+                <td>{{item.sex === '1' ? '男' : '女'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="admin-pager">
+        <a href="javascript:void(0)" class="item" v-bind:class="{disabled: list.current_page <= 1}"
+           v-on:click="page(1)">首页</a>
+        <a href="javascript:void(0)" class="item" v-bind:class="{disabled: list.current_page <= 1}"
+           v-on:click="page(list.current_page - 1)">上一页</a>
+        <a href="javascript:void(0)" class="item current">{{list.current_page}} / {{page_count}}</a>
+        <a href="javascript:void(0)" class="item" v-bind:class="{disabled: list.current_page >= page_count}"
+           v-on:click="page(list.current_page + 1)">下一页</a>
+        <a href="javascript:void(0)" class="item" v-bind:class="{disabled: list.current_page >= page_count}"
+           v-on:click="page(page_count)">尾页</a>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="main-top-bar main-top-bar-fixed  cf">
+    <h1 class="title">{{title}}</h1>
+</div>
+<div class="summary-edit-form carpool-form-box maincontent-canscroll">
+    <div class="field">
+        <label class="field-label">发布金额</label>
+        <input type="text" class="oa-textfield" v-model="config.carpool_post_cost">
+        <span class="note-tip">(发布时需要支付的金额，最小0.01元)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">置顶金额</label>
+        <input type="text" class="oa-textfield" v-model="config.carpool_top_time_cost">
+        <span class="note-tip">(置顶一小时需要支付金额，最小0.01元)</span>
+    </div>
+    <hr />
+    <div class="field">
+        <label class="field-label">小程序APPID</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_small_appid">
+        <span class="note-tip">(小程序)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">小程序SECRET</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_small_secret">
+        <span class="note-tip">(小程序)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">小程序KEY</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_small_key">
+        <span class="note-tip">(小程序)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">小程序商户ID</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_small_mch_id">
+        <span class="note-tip">(小程序)</span>
+    </div>
+    <hr />
+    <div class="field">
+        <label class="field-label">服务号APPID</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_js_appid">
+        <span class="note-tip">(微信朋友圈)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">服务号SECRET</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_js_secret">
+        <span class="note-tip">(微信朋友圈)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">服务号KEY</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_js_key">
+        <span class="note-tip">(微信朋友圈)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">服务号商户ID</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_wx_js_mch_id">
+        <span class="note-tip">(微信朋友圈)</span>
+    </div>
+    <hr />
+    <!--<div class="field">
+        <label class="field-label">支付宝身份ID</label>
+        <input type="text" class="oa-textfield" v-model="config.config_pay_ali_pid">
+        <span class="note-tip">(合作身份者id，以2088开头的16位纯数字)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">支付宝商户私钥</label>
+        <span class="note-tip">复制私钥（rsa_private_key.pem）到项目指定的目录（/wap/alipay/rsa_private_key.pem）.注意：私钥的名称必须为：rsa_private_key.pem</span>
+    </div>-->
+    <div class="field">
+        <label class="field-label">公告标题</label>
+        <input type="text" class="oa-textfield" v-model="config.config_notice_title">
+        <span class="note-tip">(公告)</span>
+    </div>
+    <div class="field">
+        <div class="rich-text-wrapper" v-ueditor="config.config_notice_content" style="width: 1000px;"></div>
+    </div>
+    <hr />
+    <div class="field">
+        <label class="field-label">首页广告位</label>
+        <input id="fileupload" type="file" name="file" data-url="">
+        <img :src="config.config_ad_banner" style="width: 640px; height: 160px;">
+        <span>(建议尺寸：640*160)</span>
+    </div>
+    <hr />
+    <div class="field">
+        <label class="field-label">分享标题</label>
+        <input type="text" class="oa-textfield" v-model="config.config_share_title">
+        <span class="note-tip">(第三方分享)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">分享描述</label>
+        <input type="text" class="oa-textfield" v-model="config.config_share_des">
+        <span class="note-tip">(第三方分享)</span>
+    </div>
+    <div class="field">
+        <label class="field-label">分享图片</label>
+        <input id="fileupload_share" type="file" name="file" data-url="">
+        <img :src="config.config_share_pic" style="width: 100px; height: 100px;">
+        <span>(建议尺寸：100*100)</span>
+    </div>
+    <button class="btn-save oa-btn oa-btn-theme" @click="saveConfig">保存</button>
+</div>

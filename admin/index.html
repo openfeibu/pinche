@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>丰宁拼车管理</title>
+<link rel="icon" href="src/libs/imgs/favicon.png" type="image/x-icon">
+<link href="src/libs/css/mods.css" rel="stylesheet">
+<link rel="stylesheet" href="src/libs/js/layer/skin/default/layer.css">
+</head>
+<body>
+    <div class="page-container" id="app" v-cloak>
+        <div class="bar-nav">
+            <a href="###" class="logo"></a>
+            <ul class="bar-nav-list">
+                 <li v-for="item in routes.topnavi">
+                    <a class="bar-nav-item" v-link="{path:item.path, activeClass:'current'}">
+                        <span class="iconfont">{{item.iconfont}}</span>
+                        <span class="item-name">{{item.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- bar-nav  end -->
+
+        <div class="outermost-router-view">
+            <admin-topwelcome></admin-topwelcome>
+            <router-view></router-view>
+        </div>
+
+        <div class="overlay admin-login-overlay" v-show="!userIsLogined" transition="overlay-fade">
+            <div class="admin-login">
+               <img src="./static/imgs/logo_login.png" class="admin-login-logo" alt="">
+               <form class="admin-login-form" novalidate="novalidate">
+                   <input type="text" class="str str-name" v-model="username" placeholder="用户名">
+                   <input type="password" class="str str-pswd" v-model="password" placeholder="密码">
+                   <div class="remember-pswd">
+                       <label>
+                           <input type="checkbox" class="ckb" value="10">记住密码
+                       </label>
+                   </div>
+                   <span class="btn-submit" @click="userLogin">登录</span>
+               </form>
+            </div>
+        </div>
+
+
+    </div><!-- page-container  end -->
+
+
+
+</body>
+<!--开发模式-->
+<script data-main="main.js" src="src/libs/js/require.js"></script>
+
+<!--发布模式-->
+</html>

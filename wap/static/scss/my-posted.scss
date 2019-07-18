@@ -1,0 +1,15 @@
+.my-posted-lists{
+	.public-seek-list{ margin-top: 8px; padding: 16px 10px 10px; background-color: #fff;
+		&:after{ left: 10px; right: 10px; bottom: 40px; }
+	}
+}
+.operate{	margin-top: 10px; padding-top: 10px; text-align: right; font-size: 0;
+	.operate-btn{ position: relative; margin-left: 10px; padding: 3px 16px; border-radius: 4px; line-height: 20px; font-size: 14px; 
+		&:after{ content: ''; position: absolute; left: 0; top: 0; width: 200%; height: 200%; border-width: 1px; border-style: solid; border-radius: 8px; transform: scale(0.5); transform-origin: 0 0; }
+	}
+	.valid{ background-color: rgba(38, 184, 62, 0.05); color: #26B83E; 
+		&:after{ border-color: #26B83E; }
+	}
+	.invalid{ background-color: rgba(0, 0, 0, 0.04); color: #999;}
+}
+

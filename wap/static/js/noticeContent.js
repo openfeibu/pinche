@@ -1,0 +1,1 @@
+!function(){var t="";new Vue({el:"#noticeContent",data:{content:""},created:function(){var n=this;$.ajax({url:t+"/carpool/carpool/getNoticeContent",method:"GET",data:{},success:function(t){t.success&&(n.content=t.data)}})}})}();

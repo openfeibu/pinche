@@ -1,0 +1,12 @@
+.success{ background-color: #fff; }
+.success-body{ margin-top: 45px; text-align: center;
+	.iconfont{ display: block; width: 93px; height: 93px; margin: 0 auto; line-height: 93px; border-radius: 50%; background-color: #09BB07; color: #fff; font-size: 35px; text-align: center;}
+	.title{ margin: 25px 0 15px; font-weight: normal; color: #000; font-size: 20px; }
+	.desc{ line-height: 20px; padding: 0 37px; color: #888; font-size: 14px; 
+		.special{ color: #1AAD19; }
+	}
+	.close-page{ margin-top: 15px; background-color: #F8F8F8; color: #000; }
+}
+.stick-success, .post-success{
+	.public-btn{ margin-top: 30px; }
+}
