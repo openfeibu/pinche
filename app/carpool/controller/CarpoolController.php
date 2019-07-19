@@ -358,7 +358,7 @@ class CarpoolController extends BaseController {
             $where["car"] = $car;
         }
         $where['status'] = 1;
-        $where['start_time'] = ['gt', time()];
+       // $where['start_time'] = ['gt', time()];
         $tops = [];
         if($page == 1) {
             $where['top_time'] = ['gt', time()];

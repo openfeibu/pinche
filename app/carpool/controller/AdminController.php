@@ -31,6 +31,7 @@ class AdminController extends BaseController {
      */
     private $SiteConfigService;
     protected function _initialize() {
+        XConfig::clearCache();
         parent::_initialize();
         $this->SiteConfigService=Ioc::get(SiteConfigService::class);
         $action=Request::instance()->action();
