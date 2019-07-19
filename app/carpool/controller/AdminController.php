@@ -19,6 +19,7 @@ use app\core\comp\Result;
 use app\core\XConfig;
 use rap\Aop\EventHook;
 use rap\Ioc;
+use think\cache\driver\Xcache;
 use think\Db;
 use think\Exception;
 use think\Request;
@@ -252,5 +253,8 @@ class AdminController extends BaseController {
             return Result::error('非法操作');
         }
     }
-
+    public function clearCache()
+    {
+        XConfig::clearCache();
+    }
 }
