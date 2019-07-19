@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>马甲拼车</title>
+<script>
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if( clientWidth > 600 ){
+            	docEl.style.fontSize = 12 + 'px';
+            }else{
+            	docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+            }
+        };
+    // Abort if browser does not support addEventListener
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+<link rel="stylesheet" rev="stylesheet" type="text/css" href="../static/css/mobile.css?time=20170109001" />
+</head>
+<body>
+    <div id="home" v-cloak>
+      <div style="height:0;overflow:hidden;">
+        <img :src="shareImage" id="magapp_thirdplat_share_img">
+      </div>
+      <!-- banner 免责声明 -->
+      <div class="home-header">
+        <div class="banner" :style="'background-image: url(' + banner_path + ');'"></div>
+        <div class="home-declaration">
+          <img src="../static/imgs/icon_announcement.png?time=20170109001" alt="" class="icon-declaration">
+          <a href="./notice-content.html?time=20170109001" class="title">{{notice_title}}</a>
+        </div>
+      </div>
+
+      <!-- 发布 -->
+      <div class="home-publish">
+        <a href="./my-posted.html?time=2017011009001" class="published"><i class="iconfont">&#xe639;</i><span class="desc">我发布的</span></a>
+        <a href="./seek-car.html?time=20170109001" class="public-seek-btn car">发布找车</a>
+        <a href="./seek-person.html?time=20170109001" class="public-seek-btn person">发布找人</a>
+      </div>
+      
+      <!-- lists -->
+      <div class="public-seek-body">
+        <ul class="home-tabs">
+          <li class="tab current" @click="switchTab(0)">全部</li>
+          <li class="tab" @click="switchTab(1)">人找车</li>
+          <li class="tab" @click="switchTab(2)">车找人</li>
+          <li class="tab"><a href="filter.html?time=20170109001" class="filter-link"><i class="iconfont">&#xe63a;</i>筛选</a></li>
+        </ul>
+
+        <ul class="home-seek-lists">
+          <li class="public-seek-list" v-for = "item in dataList">
+            <div class="header">
+              <span class="tag stick" v-if = "item.istop">置顶</span>
+              <span class="tag seek-car" v-if = "item.type == 1">人找车</span>
+              <span class="tag seek-person" v-if = "item.type == 2">车找人</span>
+              <span class="tag car-info" v-if = "item.type == 1">{{item.user_count}}人数</span>
+              <span class="tag car-info" v-if = "item.type == 2">{{item.user_count}}空位</span>
+              <span :class="['specialtag', {'today': calRecentDay(item.start_time) == '今', 'tomorrow': calRecentDay(item.start_time) == '明'}]" v-if="calRecentDay(item.start_time)">{{ calRecentDay(item.start_time) }}</span>
+            </div>
+            <p class="carpool-info">
+              <span class="start">{{ item.from_place }}</span>
+              <span class="iconfont">&#xe637;</span>
+              <span class="end">{{item.to_place}}</span>
+            </p>
+            <p class="car-type" v-if="item.type == 2 && item.mid_place">途径：{{ item.mid_place }}</p>
+            <p class="time">
+              <span 
+                class="date">{{ formatTime(item.start_time, 'yyyy-MM-dd') }}
+              </span>
+              {{ formatTime(item.start_time, 'h:m') }}出发
+            </p>
+            <p class="car-type" v-if="item.type == 2 && item.car">车型：{{ item.car ? item.car : "未知" }}</p>
+            <p class="notice" v-if="item.note">备注：{{ item.note }}</p>
+            <p class="post-info">
+              <span class="user-info"><i class="iconfont female" v-if = "item.sex == 0">&#xe604;</i><i class="iconfont male" v-if = "item.sex == 1">&#xe6c6;</i>{{ item.name }}</span><span class="date">{{ item.phone }}</span>
+            </p>
+            <a :href=" 'tel:' + item.phone" class="btn-dail"><i class="iconfont">&#xe638;</i>拨号</a>
+          </li>
+          <li class="default-value" v-if = "dataList == ''">
+            <img src="../static/imgs/default_img.png" alt="" class="default-img">暂无拼车信息<br>快发布您的拼车信息吧
+          </li>
+        </ul>
+      </div>
+      <img src="../static/imgs/btn_refresh.png" alt="" class="refresh-btn" @click="refreshPage">
+    </div>
+    <script src="../static/js/vue.js?time=20170109001"></script>
+    <script src="../static/js/jquery.js?time=20170109001"></script>
+    <script src="../static/js/underscore.js?time=20170109001"></script>
+    <script src="../static/js/layer.js?time=20170109001"></script>
+    <script src="../static/js/magjs-1.1.js?time=20170109001"></script>
+    <script src="../static/js/jweixin-1.0.0.js?time=20170109001"></script>
+    <script src="../static/js/home.js?time=20170109001"></script>
+
+</body>
+</html>

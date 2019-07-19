@@ -1,0 +1,21 @@
+<div class="main-top-bar cf">
+    <h1 class="title">{{title}}</h1>
+</div>
+<div class="user-table">
+    <table>
+        <thead>
+            <tr>
+                <!--<td>序号</td>-->
+                <td>充值金额</td>
+                <td>赠送金额</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(key,item) in list.data">
+               <!-- <td>{{item.sort}}</td>-->
+                <td>{{item.amount}}</td>
+                <td>{{item.give_amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
