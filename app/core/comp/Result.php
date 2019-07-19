@@ -83,7 +83,7 @@ class Result {
         $result = new Result();
         $result->success = true;
         $result->code = 100;
-        $result->$args[0] = $args[1];
+        $result->{$args[0]} = $args[1];
         return $result;
     }
 
