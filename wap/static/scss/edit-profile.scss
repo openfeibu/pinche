@@ -1,6 +1,0 @@
-.edit-profile{
-	.form-cells{ margin: 10px 0 24px; }
-	.form-cell_input{
-		&:after{ content: " "; display: inline-block; height: 6px; width: 6px; border-width: 2px 2px 0 0; border-color: #C8C8CD; border-style: solid; transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0); position: relative; top: -2px; position: absolute; top: 50%; right: 15px; margin-top: -4px; }
-	}
-}

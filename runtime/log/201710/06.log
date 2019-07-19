@@ -1,9 +1,0 @@
-[ 2017-10-06T20:01:33+08:00 ] 0.0.0.0 139.205.202.49 GET /carpool/carpool/getuserinfo
-[ log ] pcxcx.jywysc.com/carpool/carpool/getuserinfo [运行时间：0.578137s][吞吐率：1.73req/s] [内存消耗：4,235.03kb] [文件加载：75]
-[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
-[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.125003s ]
-[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `user_id` = null ORDER BY `postdate`  desc LIMIT 1 [ RunTime:0.046875s ]
-[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_user` [ RunTime:0.015625s ]
-[ sql ] [ SQL ] SELECT * FROM `carpool_user` WHERE  `id` = null LIMIT 1 [ RunTime:0.015625s ]
-
----------------------------------------------------------------

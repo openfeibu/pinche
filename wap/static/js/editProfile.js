@@ -1,1 +1,0 @@
-!function(){"use strict";new Vue({el:"#editProfile",data:{name:null,phone:null,sex:"1"},created:function(){for(var e in this.$data)"undefined"==typeof localStorage[e]?(this.$data[e]="",localStorage[e]=""):this.$data[e]=localStorage[e]},methods:{saveUserInfo:function(){localStorage.name=this.name,localStorage.phone=this.phone,localStorage.sex=this.sex,window.history.back()}}})}();

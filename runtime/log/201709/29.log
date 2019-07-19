@@ -1,8 +1,0 @@
-[ 2017-09-29T21:17:41+08:00 ] 0.0.0.0 183.248.65.14 GET /carpool/carpool/listCarpool?type=0&page=1
-[ log ] pcxcx.jywysc.com/carpool/carpool/listCarpool?type=0&page=1 [运行时间：0.617688s][吞吐率：1.62req/s] [内存消耗：4,047.16kb] [文件加载：65]
-[ sql ] [ DB ] CONNECT:[ UseTime:0.028389s ] mysql:dbname=pcxcx;host=localhost;port=3306;charset=utf8
-[ sql ] [ SQL ] SHOW COLUMNS FROM `carpool_content` [ RunTime:0.040135s ]
-[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1506691061  AND `top_time` > 1506691061 ORDER BY top_time desc LIMIT 0,100 [ RunTime:0.033283s ]
-[ sql ] [ SQL ] SELECT * FROM `carpool_content` WHERE  `status` = 1  AND `start_time` > 1506691061  AND `top_time` < 1506691061 ORDER BY start_time asc LIMIT 0,10 [ RunTime:0.000979s ]
-
----------------------------------------------------------------
