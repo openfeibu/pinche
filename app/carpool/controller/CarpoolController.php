@@ -498,6 +498,10 @@ class CarpoolController extends BaseController {
             if($carpoolContent) {
                 $carpoolContent -> putExtra('startTimeDateStr', date('Y-m-d', $carpoolContent -> getStartTime()));
                 $carpoolContent -> putExtra('startTimeTimeStr', date('H:i:s', $carpoolContent -> getStartTime()));
+                if(!$is_driver)
+                {
+                    $carpoolContent['phone'] = handle_phone($carpoolContent['phone']);
+                }
             }
             return Result::data($carpoolContent);
         } else {

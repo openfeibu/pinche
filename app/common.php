@@ -227,4 +227,13 @@ function string_end($str,$end){
     return substr($str, strlen($str)-1, strlen($end)) === $end;
 }
 
+function handle_idcard($id_number)
+{
+    return strlen($id_number) == 15 ? substr_replace($id_number,"******",6,6) : (strlen($id_number)==18 ? substr_replace($id_number,"******",8,6) : '');
+}
+function handle_phone($phone)
+{
+    return substr_replace($phone,"****",4,4);
+}
+
 require_once("wxpay/lib/WxPay.Api.php");
