@@ -214,11 +214,12 @@ class CarpoolController extends BaseController {
 
         $info -> setTop($top);
         $info -> setTopTime($top_time);
-      
-     
+
+        $cost= 0;
+        /*
         $post_cost = $this -> siteConfigService->getCarpoolPostCost($type);
         $top_cost = XConfig::get("carpool_top_time_cost");
-        $cost= 0;
+
         if($post_cost && $post_cost > 0)
         {
             $cost+=$post_cost;
@@ -230,6 +231,7 @@ class CarpoolController extends BaseController {
                 $cost+=$top_cost*$top_len;
             }
         }
+        */
         $needPay = false;
         if($cost > 0) {
             $needPay = true;
