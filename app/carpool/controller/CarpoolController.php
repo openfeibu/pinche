@@ -253,7 +253,7 @@ class CarpoolController extends BaseController {
         
         $this -> carpoolService -> saveCarpool($info);
         //更新账户余额
-        $this->userService->updateUserAmount($user_id,$user_amount);
+        //$this->userService->updateUserAmount($user_id,$user_amount);
         return Result::success("发布拼车信息成功");
     }
   
