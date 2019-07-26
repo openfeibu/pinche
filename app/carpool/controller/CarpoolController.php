@@ -65,7 +65,8 @@ class CarpoolController extends BaseController {
         if($user)
         {
             $token = md5str(time() .$openid.$user['name'].$user['head'].$code);
-            return Result::data(["token"=>$token,'user' => $user])-> put('open_id', $openid);
+            $driver = CarpoolDriver::get(['user_id' => $user['id']]);
+            return Result::data(["token"=>$token,'user' => $user,'driver' => $driver])-> put('open_id', $openid);
         }else{
             return Result::data(["token" => NULL,'user' => NULL]);
         }
@@ -112,7 +113,8 @@ class CarpoolController extends BaseController {
         cache("token_".$token,$user->getId());
         cookie(md5str("usertoken"),$user->getId());
         session("userid",$user->getId());
-        return Result::data(["token"=>$token])-> put('open_id', $openid);
+        $driver = CarpoolDriver::get(['user_id' => $user->getId()]);
+        return Result::data(["token"=>$token,'driver' => $driver])-> put('open_id', $openid);
     }
 
     /**
@@ -136,7 +138,9 @@ class CarpoolController extends BaseController {
         //     $post_cost = 0;
         // }
         $post_cost = 0;
-        return Result::data($data) -> put('post_cost', $post_cost);
+        $driver = CarpoolDriver::get(['user_id' => $user->getId()]);
+
+        return Result::data($data) -> put('post_cost', $post_cost)-> put('driver', $driver);
     }
 
     /**
