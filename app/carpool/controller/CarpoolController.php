@@ -10,6 +10,7 @@
 
 namespace app\carpool\controller;
 use app\carpool\model\CarpoolContent;
+use app\carpool\model\CarpoolDriver;
 use app\carpool\model\CarpoolUser;
 use app\carpool\model\UserPay;
 use app\carpool\service\CarpoolService;
@@ -167,6 +168,15 @@ class CarpoolController extends BaseController {
         if($user_id == 0) {
             Result::error('请先登录');
         }
+        $user = CarpoolUser::get(['id' => $user_id]);
+        if($type == 1)
+        {
+            $driver = CarpoolDriver::get(['user_id' => $user_id,'status' => 1]);
+            if(!$driver)
+            {
+                throw new Exception('请先通过司机认证');
+            }
+        }
         $data = $this -> getArgs(__FUNCTION__, func_get_args());
         emptysThrow($name, "联系人姓名不可为空", $phone, "联系方式不可为空", $from_place, "出发地不可为空",
             $to_place,"目的地不可为空","start_time","出发时间不可为空",$user_count,($type==1?"乘车人数":"空位数")."不可空");
@@ -192,7 +202,7 @@ class CarpoolController extends BaseController {
         $time = time();
         $info -> setPostdate($time);
         $info -> setStatus(1);
-       $top_time = $time;
+        $top_time = $time;
         if($top==1)
         {    $top_time =$time;
             $top_time += 3600*$top_len;
@@ -472,12 +482,18 @@ class CarpoolController extends BaseController {
      * @return Result
      */
     public function getCarpool($id) {
+        $user_id = UserHolder::getUserId();
+        if($user_id == 0) {
+            $is_driver =false;
+        }else{
+            $driver = CarpoolDriver::where('user_id',$user_id)->find();
+            $is_driver = $driver ? true : false;
+        }
         if(!empty($id)) {
             $carpoolContent = CarpoolContent::get(['id' => $id]);
             if($carpoolContent) {
                 $carpoolContent -> putExtra('startTimeDateStr', date('Y-m-d', $carpoolContent -> getStartTime()));
                 $carpoolContent -> putExtra('startTimeTimeStr', date('H:i:s', $carpoolContent -> getStartTime()));
-
             }
             return Result::data($carpoolContent);
         } else {
