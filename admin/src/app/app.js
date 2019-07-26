@@ -4,6 +4,7 @@ define(
         'common/components/topwelcome',
         '../config/index',
         '../user/index',
+        '../driver/index',
         '../content/index',
         '../statistics/index',
         '../changepswd/index',
@@ -38,11 +39,13 @@ define(
                                 name: '用户列表'
                             },
                             {
+                                path: '/driver',
+                                name: '司机列表'
+                            },
+                            {
                                 path: '/statistics',
                                 name: '充值统计'
                             },
-                           
-                          
                             {
                                 path: '/pay',
                                 name: '充值配置'

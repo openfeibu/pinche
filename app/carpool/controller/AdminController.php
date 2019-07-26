@@ -171,7 +171,13 @@ class AdminController extends BaseController {
      * @return Result
      */
     public function listUser($page = 1, $step = 10) {
-        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id','left')->field('carpool_user.*,carpool_driver.id as carpool_driver_id')->paginate($step, false, ['page' => $page]);
+        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id','left')->field('carpool_user.*,carpool_driver.id as carpool_driver_id')->order('carpool_user.id desc')->paginate($step, false, ['page' => $page]);
+        return Result::data($pages);
+    }
+
+    public function listDriver($page = 1,$step = 10)
+    {
+        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id')->field('carpool_user.*,carpool_driver.id as carpool_driver_id')->order('carpool_user.id desc')->paginate($step, false, ['page' => $page]);
         return Result::data($pages);
     }
 
@@ -283,7 +289,7 @@ class AdminController extends BaseController {
                 ]);
             }
 
-            return Result::success();
+            return Result::success('认证成功');
         } else {
             return Result::error('非法操作');
         }

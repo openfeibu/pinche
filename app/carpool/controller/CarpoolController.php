@@ -392,7 +392,18 @@ class CarpoolController extends BaseController {
         //$where['top_time'] = ['lt', time()];
         $order = 'start_time asc';
         $datas = $this -> carpoolService -> listCarpool($where, $page, 10, $order);
+        $user_id = UserHolder::getUserId();
+        if($user_id == 0) {
+            $is_driver =false;
+        }else{
+            $driver = CarpoolDriver::where('user_id',$user_id)->find();
+            $is_driver = $driver ? true : false;
+        }
         foreach ($datas as $item) {
+            if(!$is_driver)
+            {
+                $item['phone'] = handle_phone($item['phone']);
+            }
             $tops[] = $item;
         }
         return Result::data($tops);
