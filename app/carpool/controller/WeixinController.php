@@ -53,7 +53,34 @@ class WeixinController extends BaseController {
             '&redirect_uri=' . $redirect_url . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
         return Result::data($authUrl);
     }
+    public function getUserByCode($code)
+    {
+        $appid = XConfig::get('config_pay_wx_js_appid');
+        $secret = XConfig::get('config_pay_wx_js_secret');
+        $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='
+            . $appid . '&secret=' . $secret . '&code=' . $code . '&grant_type=authorization_code';
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        $rs = json_decode($res, true);
+        $openid = $rs['openid'];
 
+        $carpool_user = CarpoolUser::where('openid',$openid)->find();
+        if($carpool_user) {
+            $token = md5str(time() .$openid. $carpool_user['name'] . $carpool_user['head']);
+            cache("token_" . $token, $carpool_user['id']);
+            cookie(md5str("usertoken"), $carpool_user['id']);
+            session("userid", $carpool_user['id']);
+            return Result::data(["token" => $token,'user' => $carpool_user]);
+        } else {
+            return Result::data(["token" => NULL,'user' => NULL]);
+        }
+    }
     public function getOpenid($code) {
         $appid = XConfig::get('config_pay_wx_js_appid');
         $secret = XConfig::get('config_pay_wx_js_secret');

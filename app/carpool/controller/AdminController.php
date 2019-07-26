@@ -12,6 +12,7 @@ namespace app\carpool\controller;
 
 
 use app\carpool\model\CarpoolContent;
+use app\carpool\model\CarpoolDriver;
 use app\carpool\model\CarpoolUser;
 use app\carpool\service\SiteConfigService;
 use app\core\base\BaseController;
@@ -37,7 +38,7 @@ class AdminController extends BaseController {
         $action=Request::instance()->action();
         if($action!="login"){
             if(!session("is_admin")){
-                throw  new Exception("请先登录");
+                throw new Exception("请先登录");
             }
         }
     }
@@ -170,7 +171,7 @@ class AdminController extends BaseController {
      * @return Result
      */
     public function listUser($page = 1, $step = 10) {
-        $pages = CarpoolUser::paginate($step, false, ['page' => $page]);
+        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id','left')->field('carpool_user.*,carpool_driver.id as carpool_driver_id')->paginate($step, false, ['page' => $page]);
         return Result::data($pages);
     }
 
@@ -254,6 +255,40 @@ class AdminController extends BaseController {
             return Result::error('非法操作');
         }
     }
+    public function beDriver($user_id,$realname,$idcard,$car_license,$car_name,$car_color,$status)
+    {
+        $is_admin = session('is_admin');
+        $status = $status ? $status : 0;
+        if($is_admin == "1") {
+            $driver = CarpoolDriver::where('user_id',$user_id)->find();
+            if($driver)
+            {
+                CarpoolDriver::where('user_id',$user_id)->update([
+                    'realname' => $realname,
+                    'idcard' => $idcard,
+                    'car_license' => $car_license,
+                    'car_name' => $car_name,
+                    'car_color' => $car_color,
+                    'status' => $status
+                ]);
+            }else{
+                CarpoolDriver::insert([
+                    'user_id' => $user_id,
+                    'realname' => $realname,
+                    'idcard' => $idcard,
+                    'car_license' => $car_license,
+                    'car_name' => $car_name,
+                    'car_color' => $car_color,
+                    'status' => $status
+                ]);
+            }
+
+            return Result::success();
+        } else {
+            return Result::error('非法操作');
+        }
+    }
+
     public function clearCache()
     {
         XConfig::clearCache();

@@ -57,7 +57,18 @@ class CarpoolController extends BaseController {
         $this->siteConfigService=Ioc::get(SiteConfigService::class);
         $this->userService=Ioc::get(UserService::class);
     }
-
+    public function getUserByCode($code)
+    {
+        $openid = $this->wxService->wxLogin($code);
+        $user= CarpoolUser::get(['wx_open_id'=>$openid]);
+        if($user)
+        {
+            $token = md5str(time() .$openid.$user['name'].$user['head'].$code);
+            return Result::data(["token"=>$token,'user' => $user])-> put('open_id', $openid);
+        }else{
+            return Result::data(["token" => NULL,'user' => NULL]);
+        }
+    }
     /**
      * 微信用户登录
      * POST
@@ -254,12 +265,6 @@ class CarpoolController extends BaseController {
             $carpoolContent -> setTopTime($top_time);
             $carpoolContent -> save();
         if($carpoolContent) {
-          
-     
-   
-
-
-      
             $topCost = XConfig::get("carpool_top_time_cost");
             $cost= $topCost * $hour;
              //检查用户账户余额是否够支付
@@ -354,11 +359,11 @@ class CarpoolController extends BaseController {
         if($user_count) {
             $where["user_count"] = [">=", $user_count];
         }
-       if($car) {
+        if($car) {
             $where["car"] = $car;
         }
         $where['status'] = 1;
-       // $where['start_time'] = ['gt', time()];
+        $where['start_time'] = ['gt', time()];
         $tops = [];
         if($page == 1) {
             $where['top_time'] = ['gt', time()];
@@ -366,7 +371,7 @@ class CarpoolController extends BaseController {
             $tops = $this -> carpoolService -> listCarpool($where, $page, 100, $order);
         }
         unset($where['top_time']);
-    $where['top_time'] = ['lt', time()];
+        $where['top_time'] = ['lt', time()];
         $order = 'start_time asc';
         $datas = $this -> carpoolService -> listCarpool($where, $page, 10, $order);
         foreach ($datas as $item) {

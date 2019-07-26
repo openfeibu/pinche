@@ -112,7 +112,7 @@ define(['./templates', 'app/basicvue','fileupload'], function(templates, BasicVu
                             layer.close(loadpage);
                             me.pageUser();
                         }else{
-                            label.msg(res.msg);
+                            layer.msg(res.msg);
                         }
                    }
                 });
