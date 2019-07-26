@@ -173,7 +173,7 @@ class CarpoolController extends BaseController {
             Result::error('请先登录');
         }
         $user = CarpoolUser::get(['id' => $user_id]);
-        if($type == 1)
+        if($type == 2)
         {
             $driver = CarpoolDriver::get(['user_id' => $user_id,'status' => 1]);
             if(!$driver)
