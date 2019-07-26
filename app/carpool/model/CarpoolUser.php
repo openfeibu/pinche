@@ -38,6 +38,15 @@ class CarpoolUser extends BaseModel {
     public function getName() {
         return $this->getAttr("name");
     }
+
+    public function setSessionKey($session_key) {
+        return $this->setAttr("session_key",$session_key);
+    }
+
+    public function getSessionKey() {
+        return $this->getAttr("session_key");
+    }
+
     public function setPhone($phone) {
         return $this->setAttr("phone",$phone);
     }

@@ -26,6 +26,7 @@ use rap\Aop\EventHook;
 use rap\Ioc;
 use think\Exception;
 use think\Paginator;
+use app\carpool\service\WXBizDataCryptService;
 
 class CarpoolController extends BaseController {
 
@@ -60,16 +61,43 @@ class CarpoolController extends BaseController {
     }
     public function getUserByCode($code)
     {
-        $openid = $this->wxService->wxLogin($code);
+        $wx_data = $this->wxService->wxLogin($code);
+        $openid = $wx_data["openid"];
         $user= CarpoolUser::get(['wx_open_id'=>$openid]);
         if($user)
         {
             $token = md5str(time() .$openid.$user['name'].$user['head'].$code);
             $driver = CarpoolDriver::get(['user_id' => $user['id']]);
+            CarpoolUser::where('wx_open_id',$openid)->update(['session_key' => $wx_data['session_key']]);
             return Result::data(["token"=>$token,'user' => $user,'driver' => $driver])-> put('open_id', $openid);
         }else{
             return Result::data(["token" => NULL,'user' => NULL]);
         }
+    }
+    public function submitUserWxPhone($encryptedData,$iv)
+    {
+        $user_id = UserHolder::getUserId();
+        if($user_id == 0) {
+            Result::error('请先登录');
+        }
+        $user = CarpoolUser::get(['id' => $user_id]);
+        $WXBizDataCryptService = new WXBizDataCryptService($user['session_key']);
+
+        $data = [];
+        $errCode = $WXBizDataCryptService->decryptData($encryptedData, $iv, $data );
+
+        if ($errCode != 0) {
+            Result::error('错误码：'.$errCode);
+        }
+
+        $phone_data = json_decode($data);
+
+        $phone = $phone_data->phoneNumber;
+
+        CarpoolUser::where('id',$user['id'])->update([
+            'phone' => $phone
+        ]);
+        Result::success('提交成功');
     }
     /**
      * 微信用户登录
@@ -81,7 +109,8 @@ class CarpoolController extends BaseController {
      * @return Result
      */
     public function wxLogin($code,$nickname,$head,$sex){
-        $openid = $this->wxService->wxLogin($code);
+        $wx_data = $this->wxService->wxLogin($code);
+        $openid = $wx_data["openid"];
         $token = md5str(time() .$openid.$nickname.$head.$code);
         $user= CarpoolUser::get(['wx_open_id'=>$openid]);
         $isFirstLogin=false;
@@ -95,6 +124,7 @@ class CarpoolController extends BaseController {
         $user->setHead($head);
         $user->setSex($sex);
         $user->setName($nickname);
+        $user->setSessionKey($wx_data['session_key']);
         $user->save();
         if($isFirstLogin)
         {
@@ -400,7 +430,7 @@ class CarpoolController extends BaseController {
             $is_driver = $driver ? true : false;
         }
         foreach ($datas as $item) {
-            if(!$is_driver)
+            if($item['type'] == 2 && !$is_driver)
             {
                 $item['phone'] = handle_phone($item['phone']);
             }
@@ -511,7 +541,7 @@ class CarpoolController extends BaseController {
             if($carpoolContent) {
                 $carpoolContent -> putExtra('startTimeDateStr', date('Y-m-d', $carpoolContent -> getStartTime()));
                 $carpoolContent -> putExtra('startTimeTimeStr', date('H:i:s', $carpoolContent -> getStartTime()));
-                if(!$is_driver)
+                if($carpoolContent['type'] == 2 && !$is_driver)
                 {
                     $carpoolContent['phone'] = handle_phone($carpoolContent['phone']);
                 }

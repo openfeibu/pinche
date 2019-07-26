@@ -43,7 +43,7 @@ class WeixinService {
         if(!array_key_exists("openid",$data)){
             throw new Exception("获取用户信息失败,请退出后重新进入");
         }
-        return $data["openid"];
+        return $data;
     }
 
     public function createJsOrder($order_no, $body, $totalFee, $openid, $notify_url = '/carpool/order/wxPaySuccess', $paySource = 1) {

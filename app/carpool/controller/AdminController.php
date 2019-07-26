@@ -177,7 +177,7 @@ class AdminController extends BaseController {
 
     public function listDriver($page = 1,$step = 10)
     {
-        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id')->field('carpool_user.*,carpool_driver.id as carpool_driver_id')->order('carpool_user.id desc')->paginate($step, false, ['page' => $page]);
+        $pages = CarpoolUser::join('carpool_driver','carpool_driver.user_id = carpool_user.id')->field('carpool_user.*,carpool_driver.id as carpool_driver_id,carpool_driver.realname')->order('carpool_user.id desc')->paginate($step, false, ['page' => $page]);
         return Result::data($pages);
     }
 
