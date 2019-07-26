@@ -365,13 +365,15 @@ class CarpoolController extends BaseController {
         $where['status'] = 1;
         $where['start_time'] = ['gt', time()];
         $tops = [];
+        /*
         if($page == 1) {
             $where['top_time'] = ['gt', time()];
             $order = 'top_time desc';
             $tops = $this -> carpoolService -> listCarpool($where, $page, 100, $order);
         }
-        unset($where['top_time']);
-        $where['top_time'] = ['lt', time()];
+        */
+        //unset($where['top_time']);
+        //$where['top_time'] = ['lt', time()];
         $order = 'start_time asc';
         $datas = $this -> carpoolService -> listCarpool($where, $page, 10, $order);
         foreach ($datas as $item) {
