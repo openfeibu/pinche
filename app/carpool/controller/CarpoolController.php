@@ -430,7 +430,7 @@ class CarpoolController extends BaseController {
             $is_driver = $driver ? true : false;
         }
         foreach ($datas as $item) {
-            if($item['type'] == 2 && !$is_driver)
+            if($item['type'] == 1 && !$is_driver)
             {
                 $item['phone'] = handle_phone($item['phone']);
             }
@@ -541,7 +541,7 @@ class CarpoolController extends BaseController {
             if($carpoolContent) {
                 $carpoolContent -> putExtra('startTimeDateStr', date('Y-m-d', $carpoolContent -> getStartTime()));
                 $carpoolContent -> putExtra('startTimeTimeStr', date('H:i:s', $carpoolContent -> getStartTime()));
-                if($carpoolContent['type'] == 2 && !$is_driver)
+                if($carpoolContent['type'] == 1 && !$is_driver)
                 {
                     $carpoolContent['phone'] = handle_phone($carpoolContent['phone']);
                 }
